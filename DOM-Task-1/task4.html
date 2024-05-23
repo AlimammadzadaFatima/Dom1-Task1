@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task-3 input, .task-4 input{
+         font-size: 18px;
+         margin: 20px;
+         
+        }
+        .select-box select{
+         font-size: 18px;
+         margin: 20px;
+        }
+        .changed-div{
+         width: 300px;
+         height: 300px;
+         border: 20px;
+         border-color: red;
+         border-style: dotted;
+        }
+        .task-4-div{
+         margin: 20px;
+         width: 200px;
+         height: 200px;
+         border: 5px dashed black;
+        }
+        .calc{
+         width: 400px;
+         height: 100%;
+         border: 5px solid rgb(93, 92, 92);
+         margin: auto;
+         display: grid;
+         gap: 15px;
+         grid-template-areas: 
+         "bir bir bir bir"
+         "iki uc dord bes"
+         "alti yeddi sekkiz doqquz"
+         "on onbir oniki doqquz"
+         "onuc ondord onbes doqquz"
+         "onalti onyeddi onsekkiz doqquz"
+        }
+        
+        .item{
+         background-color: rgb(192, 190, 190);
+         font-size: 30px;
+         text-align: center;
+         line-height: 80px;
+         border: 2px solid black;
+         margin: 5px;
+        }
+        .item:nth-child(1){
+         grid-area: bir;
+        }
+        .item:nth-child(2){
+         grid-area: iki;
+        }
+        .item:nth-child(3){
+         grid-area: uc;
+        }
+        .item:nth-child(4){
+         grid-area: dord;
+        }
+        .item:nth-child(5){
+         grid-area: bes;
+        }
+        .item:nth-child(6){
+         grid-area: alti;
+        }
+        .item:nth-child(7){
+         grid-area: yeddi;
+        }
+        .item:nth-child(8){
+         grid-area: sekkiz;
+        }
+        .item:nth-child(9){
+         grid-area: doqquz;
+        }
+        .item:nth-child(10){
+         grid-area: on;
+        }
+        .item:nth-child(11){
+         grid-area: onbir;
+        }
+        .item:nth-child(12){
+         grid-area: oniki;
+        }
+        .item:nth-child(13){
+         grid-area: onuc;
+        }
+        .item:nth-child(14){
+         grid-area: ondord;
+        }
+        .item:nth-child(15){
+         grid-area: onbes;
+        }
+        .item:nth-child(16){
+         grid-area: onalti;
+        }
+        .item:nth-child(17){
+         grid-area: onyeddi;
+        }
+        .item:nth-child(18){
+         grid-area: onsekkiz;
+        }
+        
+     </style>
+</head>
+<body>
+    <div class="task-4">
+        <input type="number" placeholder="width" id="task4Width">
+        <input type="number" placeholder="height" id="task4Height" >
+        <input type="number" placeholder="borderWidth" id="task4Border">
+       <button onclick="changedWidth()">OK</button>
+        <div class="task-4-div" style="width: 200px; height: 200px;">
+    
+        </div>
+     </div>
+     <script>
+        function changedWidth() {
+  let task4Width = document.querySelector("#task4Width").value;
+let task4Height = document.querySelector("#task4Height").value;
+let task4Border = document.querySelector("#task4Border").value;
+  let div4=document.querySelector(".task-4-div");
+  let oldw=parseInt((div4.style.width));
+  let oldh=parseInt((div4.style.height));
+  div4.style.borderColor="black";
+  if(task4Border) div4.style.border=task4Border+"px dashed black";
+  if(task4Height) div4.style.height=(oldh)+(+task4Height)+"px";
+  if(task4Width) div4.style.width=(oldw)+(+task4Width)+"px";
+  console.log+(oldw+task4Width);
+}
+     </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kalkulyator</h1>
+    <input id="inp1" type="text">
+    <input id="inp2" type="text" >
+    <button onclick="calculate(this)">+</button>
+    <button onclick="calculate(this)">-</button>
+    <button onclick="calculate(this)">*</button>
+    <button onclick="calculate(this)">/</button>
+    <p>netice : <span></span> </p>
+    
+
+    <script>
+        // TASK 1 KALKULYATOR
+function calculate(x) {
+    let input1 =+document.querySelector("#inp1").value;
+    let input2=+document.querySelector("#inp2").value;
+  if(x.innerText=="+"){
+    document.querySelector("span").innerHTML=input1+input2;
+  }
+  else if(x.innerText=="-"){
+    document.querySelector("span").innerHTML=input1-input2;
+  }
+  else if (x.innerText=="*"){
+    document.querySelector("span").innerHTML=input1*input2;
+  }
+  else if(x.innerText=="/"){
+    document.querySelector("span").innerHTML=input1/input2;
+  }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task-3 input, .task-4 input{
+         font-size: 18px;
+         margin: 20px;
+         
+        }
+        .select-box select{
+         font-size: 18px;
+         margin: 20px;
+        }
+        .changed-div{
+         width: 300px;
+         height: 300px;
+         border: 20px;
+         border-color: red;
+         border-style: dotted;
+        }
+        .task-4-div{
+         margin: 20px;
+         width: 200px;
+         height: 200px;
+         border: 5px dashed black;
+        }
+        .calc{
+         width: 400px;
+         height: 100%;
+         border: 5px solid rgb(93, 92, 92);
+         margin: auto;
+         display: grid;
+         gap: 15px;
+         grid-template-areas: 
+         "bir bir bir bir"
+         "iki uc dord bes"
+         "alti yeddi sekkiz doqquz"
+         "on onbir oniki doqquz"
+         "onuc ondord onbes doqquz"
+         "onalti onyeddi onsekkiz doqquz"
+        }
+        
+        .item{
+         background-color: rgb(192, 190, 190);
+         font-size: 30px;
+         text-align: center;
+         line-height: 80px;
+         border: 2px solid black;
+         margin: 5px;
+        }
+        .item:nth-child(1){
+         grid-area: bir;
+        }
+        .item:nth-child(2){
+         grid-area: iki;
+        }
+        .item:nth-child(3){
+         grid-area: uc;
+        }
+        .item:nth-child(4){
+         grid-area: dord;
+        }
+        .item:nth-child(5){
+         grid-area: bes;
+        }
+        .item:nth-child(6){
+         grid-area: alti;
+        }
+        .item:nth-child(7){
+         grid-area: yeddi;
+        }
+        .item:nth-child(8){
+         grid-area: sekkiz;
+        }
+        .item:nth-child(9){
+         grid-area: doqquz;
+        }
+        .item:nth-child(10){
+         grid-area: on;
+        }
+        .item:nth-child(11){
+         grid-area: onbir;
+        }
+        .item:nth-child(12){
+         grid-area: oniki;
+        }
+        .item:nth-child(13){
+         grid-area: onuc;
+        }
+        .item:nth-child(14){
+         grid-area: ondord;
+        }
+        .item:nth-child(15){
+         grid-area: onbes;
+        }
+        .item:nth-child(16){
+         grid-area: onalti;
+        }
+        .item:nth-child(17){
+         grid-area: onyeddi;
+        }
+        .item:nth-child(18){
+         grid-area: onsekkiz;
+        }
+        
+     </style>
+</head>
+<body>
+    <div class="task-3">
+        <h1>TASK 3</h1>
+        <div class="inputs">
+            <input type="number" placeholder="width" id="width_inp">
+            <input type="number" placeholder="height" id="height_inp">
+            <input type="number" placeholder="border width" id="border_width_inp">
+        </div>
+            <div class="select-box">
+                <select id="mySelect">
+                    <option value="option" disabled selected>Border style</option>
+                    <option value="dotted">dotted</option>
+                    <option value="dashed">dashed</option>
+                    <option value="solid">solid</option>
+                    <option value="double">double</option>
+                    <option value="groove">groove</option>
+                    <option value="ridge">ridge</option>
+                    <option value="inset">inset</option>
+                    <option value="outset">outset</option>
+                    <option value="none">none</option>
+                    <option value="hidden">hidden</option>
+                </select>
+                
+                    <label for="border-color">Border Color:</label>
+                    <input type="color" id="border-color" name="border-color" >
+            
+                    <label for="color">Color:</label>
+                    <input type="color" id="color" name="color" >
+              
+                    <label for="backgroundColor">BackgroundColor</label>
+                    <input type="color" id="backgroundColor" name="backgroundColor" >
+                </select>
+               
+                <button onclick="design()">Ok</button>
+            </div>
+    
+            <div class="changed-div">
+    
+            </div>
+     </div>
+     <br><br><hr><br><br>
+     <script>
+        let borderColor=document.querySelector("#border-color");
+let color = document.querySelector("#color");
+let bgColor=document.querySelector("#backgroundColor");
+let div=document.querySelector(".changed-div");
+div.style.color="white";
+div.style.backgroundColor="yellow";
+function design() {
+  let elementWidth=document.querySelector("#width_inp").value;
+  let elementHeight=document.querySelector("#height_inp").value;
+  let elementBorderWidth=document.querySelector("#border_width_inp").value;
+  let selectElement = document.getElementById("mySelect");
+  var selectedValue = selectElement.options[selectElement.selectedIndex].value;
+  let selectedBorder=borderColor.value;
+  let selectedColor=color.value;
+  let selectBgColor=bgColor.value;
+ 
+ if(elementWidth) div.style.width=elementWidth+"px";
+ if(elementHeight) div.style.height=elementHeight+"px";
+ if(selectedColor && selectedColor !== "#000000") div.style.color=selectedColor;
+ if(selectBgColor && selectBgColor !== "#000000") div.style.backgroundColor=selectBgColor;
+ if(elementBorderWidth) div.style.border=elementBorderWidth+"px";
+ if(selectedBorder && selectedBorder !== "#000000") div.style.borderColor=selectedBorder;
+ if(selectedValue) div.style.borderStyle=selectedValue;
+}
+     </script>
+</body>
+</html>

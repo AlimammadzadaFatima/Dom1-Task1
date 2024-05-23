@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task-3 input, .task-4 input{
+         font-size: 18px;
+         margin: 20px;
+         
+        }
+        .select-box select{
+         font-size: 18px;
+         margin: 20px;
+        }
+        .changed-div{
+         width: 300px;
+         height: 300px;
+         border: 20px;
+         border-color: red;
+         border-style: dotted;
+        }
+        .task-4-div{
+         margin: 20px;
+         width: 200px;
+         height: 200px;
+         border: 5px dashed black;
+        }
+        .calc{
+         width: 400px;
+         height: 100%;
+         border: 5px solid rgb(93, 92, 92);
+         margin: auto;
+         display: grid;
+         gap: 15px;
+         grid-template-areas: 
+         "bir bir bir bir"
+         "iki uc dord bes"
+         "alti yeddi sekkiz doqquz"
+         "on onbir oniki doqquz"
+         "onuc ondord onbes doqquz"
+         "onalti onyeddi onsekkiz doqquz"
+        }
+        
+        .item{
+         background-color: rgb(223, 226, 226);
+         font-size: 30px;
+         text-align: center;
+         line-height: 80px;
+         border: 2px solid black;
+         margin: 5px;
+        }
+        .item:nth-child(1){
+         grid-area: bir;
+         background-color: rgb(84, 84, 84);
+         color: white;
+        }
+        .item:nth-child(2){
+         grid-area: iki;
+        }
+        .item:nth-child(3){
+         grid-area: uc;
+        }
+        .item:nth-child(4){
+         grid-area: dord;
+        }
+        .item:nth-child(5){
+         grid-area: bes;
+        }
+        .item:nth-child(6){
+         grid-area: alti;
+        }
+        .item:nth-child(7){
+         grid-area: yeddi;
+        }
+        .item:nth-child(8){
+         grid-area: sekkiz;
+        }
+        .item:nth-child(9){
+         grid-area: doqquz;
+         background-color: rgb(171, 220, 255);
+        }
+        .item:nth-child(10){
+         grid-area: on;
+        }
+        .item:nth-child(11){
+         grid-area: onbir;
+        }
+        .item:nth-child(12){
+         grid-area: oniki;
+        }
+        .item:nth-child(13){
+         grid-area: onuc;
+        }
+        .item:nth-child(14){
+         grid-area: ondord;
+        }
+        .item:nth-child(15){
+         grid-area: onbes;
+        }
+        .item:nth-child(16){
+         grid-area: onalti;
+        }
+        .item:nth-child(17){
+         grid-area: onyeddi;
+         background-color: rgba(255, 10, 10, 0.527);
+         color: white;
+        }
+        .item:nth-child(18){
+         grid-area: onsekkiz;
+         background-color: rgb(235, 40, 40);
+         color: white;
+        }
+        
+     </style>
+</head>
+<body>
+    <div class="task-5">
+        <h1>kalkulyator</h1>
+        <div class="calc">
+            <div class="item" id="screenDiv" > 0</div>
+            <div class="item" onclick="eded('+')">+</div>
+            <div class="item" onclick="eded('-')">-</div>
+            <div class="item" onclick="eded('*')">*</div>
+            <div class="item" onclick="eded('/')">/</div>
+            <div class="item" onclick="eded('7')">7</div>
+            <div class="item" onclick="eded('8')">8</div>
+            <div class="item" onclick="eded('9')">9</div>
+            <div class="item" onclick="beraber()">=</div>
+            <div class="item" onclick="eded('4')">4</div>
+            <div class="item" onclick="eded('5')">5</div>
+            <div class="item" onclick="eded('6')">6</div>
+            <div class="item" onclick="eded('1')">1</div>
+            <div class="item" onclick="eded('2')">2</div>
+            <div class="item" onclick="eded('3')">3</div>
+            <div class="item" onclick="eded('0')">0</div>
+            <div class="item" onclick="deleteElement()">C</div>
+            <div class="item" onclick="TotalDel()">AC</div>
+        </div>
+     </div>
+
+     <script>
+    function eded(b) {
+        if(mentiq==true){
+    screenDiv.innerText=0;
+}
+mentiq=false;
+if(screenDiv.innerText==0){
+  screenDiv.innerText=b;
+}
+else{
+  screenDiv.innerText+=b;
+}
+
+console.log(screenDiv.innerText);
+
+}
+var mentiq=false;
+function beraber() {
+    mentiq=true;
+  let result=0;
+  if(screenDiv.innerText.includes("+")){
+    let deyer = screenDiv.innerText.split("+");
+    for (let index = 0; index < deyer.length; index++) {
+    result+=(+deyer[index]);
+    }
+  }
+  if(screenDiv.innerText.includes("-")){
+    let deyer = screenDiv.innerText.split("-");
+    result=deyer[0];
+    console.log(result);
+    for (let index = 1; index < deyer.length; index++) {
+    result-=(+deyer[index]);
+    }
+  }
+  if(screenDiv.innerText.includes("*")){
+    let deyer = screenDiv.innerText.split("*");
+    result=deyer[0];
+    console.log(result);
+    for (let index = 1; index < deyer.length; index++) {
+    result*=(+deyer[index]);
+    }
+  }
+  if(screenDiv.innerText.includes("/")){
+    let deyer = screenDiv.innerText.split("/");
+    result=deyer[0];
+    console.log(result);
+    for (let index = 1; index < deyer.length; index++) {
+    result=result/(+deyer[index]);
+    }
+  }
+  screenDiv.innerText=result;
+}
+
+function TotalDel() {
+  screenDiv.innerText=0;
+}
+function deleteElement() {
+  // let yenitext=screenDiv.innerText.split("");
+  // yenitext.pop();
+  // screenDiv.innerText=yenitext.join("");
+  screenDiv.innerText=screenDiv.innerText.slice(0,-1);
+  if(screenDiv.innerText==""){
+    screenDiv.innerText=0;
+  }
+}
+     </script>
+</body>
+
+</html>
